@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import './App.css';
 import React , { Component } from 'react';
-import Axios  from 'axios';
+import axios  from 'axios';
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
-const [characters, setCharacters ] = useState();
+const [characters, setCharacters ] = useState({});
 const [error , setError] = useState();
 
 
 useEffect(() => {
+axios.get ('https://swapi.dev/')
   peopleData(props.characters)
     .then(res => setUser(res.data.character))
-    .catch(err => setError(err.response.message));
+    .catch(err => setError(err.response));
 }, [props.characters]); 
 
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
