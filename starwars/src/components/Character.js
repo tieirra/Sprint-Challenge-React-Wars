@@ -3,9 +3,6 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import App from "../App"
 
-
-
-
 function People(props) {
 
 
@@ -58,8 +55,6 @@ const img = styled.img`
   border-radius: 5%;
   max-width: 100%;
 `;
-
-
 
 
 export default People;
