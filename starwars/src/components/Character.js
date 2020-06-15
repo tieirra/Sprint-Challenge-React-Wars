@@ -1,39 +1,38 @@
-// Write your Character component here
-import React from 'react';
+
+import React, { useState } from "react";
 import styled from 'styled-components';
+import App from "../App"
 
 
 
 
-const People = (props) => {
-    const { data } = props;
-
-    return (
-        <CardHolderDiv>
-            {data.map((characterInfo) => {
-                return (
-
-                    <Card>
-                        <h1>Name: {characterInfo.name}</h1>
-                        <h3>Gender: {characterInfo.gender}</h3>
-                        <h3>Status: {characterInfo.status}</h3>
-                        <h3>Spieces: {characterInfo.species}</h3>
-                        <ImgPicture>Picture</ImgPicture>>
-                        <Img src={characterInfo.image}></Img>
-                    </Card>
-
-                );
+function People(props) {
 
 
-            })}
+  return (
 
-        </CardHolderDiv>
-    );
+    <div> {props.data.map((data, i) => {
+      return (
+
+        <Card key={i}>
+          <h1>Name: {data.name}</h1>
+          <h3>Eye color: {data.eye_color}</h3>
+
+          <img src={data.image} />
+        </Card>
+
+      );
+
+
+    })}
+
+    </div>
+  );
 
 
 };
 
-const CardHolderDiv = styled.div`
+const div = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -49,22 +48,17 @@ const Card = styled.div`
   width: 25%;
   margin: 2% 0;
   padding: 2%;
-  box-shadow: 5px 5px 20px red;
+  box-shadow: 5px 5px 20px pink;
   color: #555;
 `;
 
 
-const Img = styled.img`
+const img = styled.img`
   border: gray solid 3px;
   border-radius: 5%;
   max-width: 100%;
 `;
 
-
-const ImgPicture = styled.p`
-  color: pink;
-  font-size: 15px;
-`;
 
 
 

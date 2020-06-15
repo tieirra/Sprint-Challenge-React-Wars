@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from "react";
-import './App.css';
+import axios from "axios";
+import "./App.css";
 import People  from "./components/Character"; 
-import axios from 'axios';
+
 
 
 
@@ -9,13 +11,13 @@ import axios from 'axios';
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
-  const [character, setCharacter] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    axios.get('https://swapi.dev/')
-
+    axios.get('https://swapi.py4e.com/api/people')
       .then((resp) => {
-        setCharacter(resp.data.results);
+        console.log(resp);
+        setCharacters(resp.data.results);
       })
 
       .catch((error) => {
@@ -33,7 +35,9 @@ const App = () => {
     <div className="App">
       <h1 className="Header">Characters</h1>
       <div className="cardHolder">
-        <People data={character} />
+        <People data={characters} />
+
+
       </div>
     </div>
   );
@@ -45,3 +49,4 @@ const App = () => {
 // sync up with, if any.
 
 export default App;
+
